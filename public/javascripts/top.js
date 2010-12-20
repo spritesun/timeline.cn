@@ -919,7 +919,7 @@ var showSettings = function(parent, expand, success_text, error_text) {
 
 
 MemoLane.refreshCurrentUser = function(callback) {
-  Gnarly.json(['get', "/me"], function(xhr, currentUser) {
+  Gnarly.json(['get', "/"], function(xhr, currentUser) {
     if (xhr.status === 200 ) {
       MemoLane.currentUser = currentUser;
       callback();
@@ -1134,7 +1134,7 @@ var handleStaticActions = function( object ) {
   });
  
   var home = menu.find("li.home").click(function() {
-    window.location.href = "/me"
+    window.location.href = "/"
   });
   
   var privacy = menu.find("li.login").click(function() {
@@ -1373,7 +1373,7 @@ $(function() {
       
       //always get the current user as well as this is used in many places (and
       //we also need to know if no one is logged in...
-      Gnarly.json(['get', '/me'], function(xhr2, currentUser) {
+      Gnarly.json(['get', '/'], function(xhr2, currentUser) {
         if (xhr2.status === 200 ) {
           
           MemoLane.currentUser = currentUser;

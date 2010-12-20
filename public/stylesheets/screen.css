@@ -246,6 +246,10 @@ label {
 	height: 25px;
 }
 
+#timeline .slot > .content .memo.douban-movie > .connection > .connect {
+	background: url(../images/douban.png) no-repeat;
+}
+
 #timeline .slot > .content .memo.twitter > .connection > .connect {
 	background: url(../images/twitter.png) no-repeat;
 }
