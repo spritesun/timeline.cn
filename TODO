@@ -1,0 +1,4 @@
+fetch douban book json
+translate json to book object
+save into database
+show them in web douban/books
