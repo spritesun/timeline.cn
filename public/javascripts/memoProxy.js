@@ -56,17 +56,17 @@ MemoLane.MemoProxy.Proxy.prototype = {
     var from = from - (7 * this.DAY);
     var to = to + (14 * this.DAY);
 
-    Gnarly.json(['get', [that.url, {from: from, to: to}]], function(xhr, data) {
-      that.cache.push([from, to]);
-      _.each(data.memos, function(memo) {
-        if( memo ) { //HACK!! memo really should never be NULL but it can happen in a story if a deletion or refresh of an account or deletion of a user goes bad
-          that.memos.push([memo.created_at, memo]);
-        } else {
-          //console.log( "dangling story contribution detected!");
-        }
-      });
-      callback();
-    });
+    // Gnarly.json(['get', [that.url, {from: from, to: to}]], function(xhr, data) {
+    //   that.cache.push([from, to]);
+    //   _.each(data.memos, function(memo) {
+    //     if( memo ) { //HACK!! memo really should never be NULL but it can happen in a story if a deletion or refresh of an account or deletion of a user goes bad
+    //       that.memos.push([memo.created_at, memo]);
+    //     } else {
+    //       //console.log( "dangling story contribution detected!");
+    //     }
+    //   });
+    //   callback();
+    // });
   },
 
   select: function(array, from, to) {

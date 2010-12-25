@@ -468,25 +468,25 @@ MemoLane.TimeLine.prototype.makeBody = function(item, body, data, callback) {
         });
         
         //also get the story members
-        Gnarly.json(['get', "/stories/" + storyId + "/members"], function(xhr, data) {
-          if (xhr.status == 200) {
-            var storyMembers = {};
-            $.each( data, function(i, member) {
-              storyMembers[member.id] = member;
-            });
-            
-            $.each(items, function(i, e) {
-              if( e.items )
-                t.makeMemo(body, e, $.inArray(e.items[0]._id, ids) != -1, storyId, editMode, storyMembers[e.items[0].user_id] );
-              else
-                t.makeMemo(body, e, $.inArray(e._id, ids) != -1, storyId, editMode, storyMembers[e.user_id] );
-            });
-        
-          } else {
-            //TODO; something...
-          }
-          if (callback) { callback() };
-        });
+        // Gnarly.json(['get', "/stories/" + storyId + "/members"], function(xhr, data) {
+        //       if (xhr.status == 200) {
+        //         var storyMembers = {};
+        //         $.each( data, function(i, member) {
+        //           storyMembers[member.id] = member;
+        //         });
+        //         
+        //         $.each(items, function(i, e) {
+        //           if( e.items )
+        //             t.makeMemo(body, e, $.inArray(e.items[0]._id, ids) != -1, storyId, editMode, storyMembers[e.items[0].user_id] );
+        //           else
+        //             t.makeMemo(body, e, $.inArray(e._id, ids) != -1, storyId, editMode, storyMembers[e.user_id] );
+        //         });
+        //     
+        //       } else {
+        //         //TODO; something...
+        //       }
+        //       if (callback) { callback() };
+        //     });
           
       } else {
     // ToDo: Error Handling
@@ -924,6 +924,7 @@ $(function() {
   var url = $("#urls .volume").attr("href");
   if( url != "" ) {
     Gnarly.json(['get', url], function(xhr, data) { //get volume json object
+	xhr.status = 200
       if (xhr.status === 200) {
 		data = {"rows":[{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,2,14],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,2,29],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,2,30],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,2],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,9],"value":5},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,10],"value":17},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,11],"value":30},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,12],"value":4},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,13],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,14],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,18],"value":7},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,28],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,29],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,3,30],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,3],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,6],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,13],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,14],"value":5},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,17],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,20],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,21],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,23],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,24],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,25],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,26],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,27],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,28],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,30],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,4,31],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,2],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,3],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,9],"value":7},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,13],"value":4},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,16],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,18],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,20],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,23],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,24],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,27],"value":7},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,5,28],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,6,4],"value":6},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,6,11],"value":13},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,6,16],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,6,21],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,6,22],"value":6},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,6,23],"value":5},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,6,28],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,7,1],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,7,11],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,7,18],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,7,20],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,7,22],"value":7},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,7,24],"value":6},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,7,29],"value":5},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,7,30],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,7,31],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,3],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,12],"value":11},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,13],"value":10},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,16],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,17],"value":7},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,18],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,19],"value":16},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,20],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,22],"value":4},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,23],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,24],"value":5},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,25],"value":7},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,26],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,27],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,8,29],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,1],"value":69},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,4],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,10],"value":29},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,17],"value":11},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,24],"value":12},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,25],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,26],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,27],"value":15},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,28],"value":11},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,29],"value":15},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,30],"value":29},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,9,31],"value":14},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,1],"value":2},{"key":["8a3d3bed",2010,10,2],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,3],"value":5},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,4],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,5],"value":13},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,6],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,7],"value":4},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,8],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,9],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,10],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,11],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,14],"value":33},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,15],"value":6},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,16],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,17],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,18],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,19],"value":23},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,20],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,22],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,23],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,24],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,25],"value":3},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,26],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,28],"value":14},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,29],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,10,30],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,1],"value":13},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,2],"value":6},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,3],"value":14},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,4],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,5],"value":4},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,6],"value":4},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,7],"value":5},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,8],"value":13},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,9],"value":12},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,10],"value":8},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,11],"value":30},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,12],"value":15},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,13],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,14],"value":10},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,15],"value":17},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,16],"value":10},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2010,11,17],"value":4},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2011,0,8],"value":2},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2011,0,13],"value":1},{"key":["8a3d3bacd1eef863886c00023c5dc8ed",2011,0,14],"value":1}]};
         if( data ) {
