@@ -1,4 +1,10 @@
 Timeline::Application.routes.draw do
+  resources :books, :only => "index" do
+    collection do
+      get 'sync'
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

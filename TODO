@@ -1,0 +1,7 @@
+TODO:
+show them in web douban/books
+
+DONE:
+fetch douban book json
+translate json to book object
+save book into database
